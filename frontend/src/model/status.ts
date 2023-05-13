@@ -1,11 +1,5 @@
-export const status = {
-    "OPEN": {
-        displayText: "Open",
-    },
-    "IN_PROGRESS": {
-        displayText: "Doing",
-    },
-    "DONE": {
-        displayText: "Done",
-    }
-} as const
+export enum status {
+    OPEN = 'OPEN',
+    IN_PROGRESS = 'IN PROGRESS',
+    DONE = 'DONE',
+}
