@@ -1,0 +1,9 @@
+.ToDoCard {
+    color: #73b5c9;
+    background-color: honeydew;
+    border-style: groove;
+    margin-bottom: 20px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
