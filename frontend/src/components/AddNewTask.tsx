@@ -11,7 +11,7 @@ function AddNewTask(props: AddNewTaskProps) {
 
     return (
         <div>
-            <input type="text" onInput={InputText}/>
+            <input onInput={InputText}/>
         </div>
     );
 }

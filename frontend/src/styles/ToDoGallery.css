@@ -1,8 +1,8 @@
 .gallery {
     display: flex;
-    gap: 40px;
-    border: #0bd711 2px solid;
+    gap: 5px;
+    border: #73b5c9 2px dot-dash;
     margin: 12px;
     padding-top: 10px;
-    justify-content: space-around;
+    justify-content: center;
 }
