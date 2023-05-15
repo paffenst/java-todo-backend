@@ -4,8 +4,8 @@ import axios from 'axios';
 import {ItemToDo} from '../model/ItemToDo';
 import ToDoCard from "./ToDoCard";
 import '../styles/ToDoGallery.css';
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+//import {Simulate} from "react-dom/test-utils";
+//import error = Simulate.error;
 
 function TodoGallery() {
     const [inputName, setInputName] = useState(" ");
@@ -19,9 +19,8 @@ function TodoGallery() {
         axios.get("/api/todo")
             .then(response => {
                 setToDoTasks(response.data)
-            })
+            }).catch(error => console.log(error.message()))
     }
-
     const filterTasks = (status: string) => toDoTasks.filter((item) => item.status.includes(status));
 
     const renderTasks = (status: string) => filterTasks(status).map((item) => <ToDoCard item={item}

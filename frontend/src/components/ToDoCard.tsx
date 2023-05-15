@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {ItemToDo} from '../model/ItemToDo';
 import '../styles/ToDoCard.css';
+import ModalInputWindow from "./ModalInputWindow"
+import {getItems} from "react-bootstrap-typeahead/types/tests/helpers";
 
 type ToDoCardProps = {
     item: ItemToDo;
@@ -11,8 +13,8 @@ type ToDoCardProps = {
 function TodoCard(props: ToDoCardProps) {
     const [description, setDescription] = useState(props.item.description);
     const deleteById = () => {
-        axios.delete(`/api/todo/${props.item.id}`).then(props.getTasks);
-    };
+        axios.delete(`/api/todo/${props.item.id}`).then(props.getTasks)
+    }
 
     const updateById = () => {
         axios.put(`/api/todo/${props.item.id}`, {
@@ -20,7 +22,7 @@ function TodoCard(props: ToDoCardProps) {
             status: props.item.status,
             id: props.item.id,
         }).then(props.getTasks);
-    };
+    }
 
     const advanceStatus = () => {
         const newStatus =
@@ -30,10 +32,10 @@ function TodoCard(props: ToDoCardProps) {
             status: newStatus,
             id: props.item.id,
         }).then(props.getTasks);
-    };
+    }
     return (
         <div className="ToDoCard" key={props.item.id}>
-            <h3>{props.item.description}</h3>
+            <h2>{props.item.description}</h2>
             <div>
                 <p>Edit a description:</p>
                 <input
@@ -42,13 +44,13 @@ function TodoCard(props: ToDoCardProps) {
                     onChange={(e) => setDescription(e.target.value)}
                 />
                 <button className={"text-bg-end"} onClick={updateById}>Edit text</button>
-                {props.item.status === 'DONE' ? (
+                {  props.item.status === 'DONE' ? (
                     <button className={"text-bg-danger"} onClick={deleteById}>Delete</button>
                 ) : (
                     <button className={"text-bg-info "}onClick={advanceStatus}>Advance</button>
                 )}
             </div>
         </div>
-    );
+    )
 }
 export default TodoCard;
